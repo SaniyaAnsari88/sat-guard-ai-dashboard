@@ -1,0 +1,14 @@
+feature,mean_absolute_shap
+miss_distance_km,9.501929
+relative_velocity_km_s,5.278283
+relative_velocity_score,1.3692946
+proximity_score,1.3642591
+visual_detection_count,0.0
+visual_mean_confidence,0.0
+visual_max_confidence,0.0
+visual_mean_bbox_area,0.0
+visual_max_bbox_area,0.0
+visual_mean_bbox_width,0.0
+visual_mean_bbox_height,0.0
+visual_mean_x_center,0.0
+visual_mean_y_center,0.0

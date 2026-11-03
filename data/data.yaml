@@ -1,0 +1,19 @@
+
+path: /content/drive/MyDrive/SAT_GUARD_AI/data
+
+train: train/images
+val: valid/images
+test: test/images
+
+names:
+  0: cheops
+  1: debris
+  2: double_start
+  3: earth_observation_sat_1
+  4: lisa_pathfinder
+  5: proba_2
+  6: proba_3_csc
+  7: proba_3_ocs
+  8: smart_1
+  9: soho
+  10: xmm_newton
