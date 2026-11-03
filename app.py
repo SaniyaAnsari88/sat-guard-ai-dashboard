@@ -179,15 +179,48 @@ def style_fig(fig, height=420):
 # ------------------------------------------------------------
 
 
+
 @st.cache_resource(show_spinner=False)
 def load_yolo(path):
-    if not Path(path).is_file():
+    import traceback
+
+    model_path = Path(path).expanduser().resolve()
+
+    print(f"YOLO model path: {model_path}", flush=True)
+    print(f"File exists: {model_path.is_file()}", flush=True)
+
+    if not model_path.is_file():
+        print(f"YOLO FILE NOT FOUND: {model_path}", flush=True)
+        print(f"Parent folder exists: {model_path.parent.is_dir()}", flush=True)
+
+        if model_path.parent.is_dir():
+            print(
+                f"Parent folder contents: {list(model_path.parent.iterdir())}",
+                flush=True
+            )
         return None
+
+    print(
+        f"YOLO file size: {model_path.stat().st_size / (1024 * 1024):.2f} MB",
+        flush=True
+    )
+
     try:
+        import torch
+        import ultralytics
         from ultralytics import YOLO
-        return YOLO(str(path))
+
+        print(f"PyTorch version: {torch.__version__}", flush=True)
+        print(f"Ultralytics version: {ultralytics.__version__}", flush=True)
+
+        model = YOLO(str(model_path))
+
+        print("YOLO MODEL LOADED SUCCESSFULLY!", flush=True)
+        return model
+
     except Exception as exc:
-        print("YOLO load failed:", exc)
+        print(f"YOLO LOAD ERROR: {type(exc).__name__}: {exc}", flush=True)
+        traceback.print_exc()
         return None
 
 
