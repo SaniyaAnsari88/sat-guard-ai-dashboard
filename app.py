@@ -37,7 +37,7 @@ warnings.filterwarnings("ignore")
 # CONFIGURATION
 # ------------------------------------------------------------
 
-PROJECT_DIR = Path(os.environ.get("SATGUARD_DIR", Path(__file__).resolve().parent))
+PROJECT_DIR = Path(os.environ.get("SATGUARD_DIR", "/content/drive/MyDrive/SAT_GUARD_AI"))
 
 YOLO_PATH = PROJECT_DIR / "results/yolov8_debris/weights/best.pt"
 FUSION_PATH = PROJECT_DIR / "models/fusion_risk_model.pkl"
